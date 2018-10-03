@@ -70,9 +70,9 @@ $spades = array();
             }
             
             
-            
-            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' />";
-            
+
+            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '50px'/>";
+            //echo " Total = $total";
         }
         echo "</div>";
         return $total;
