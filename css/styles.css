@@ -1,0 +1,30 @@
+h1 {
+    border-bottom:10px;
+    text-decoration:none;
+    color:#42bff4;
+}
+
+body {
+    background-image: url("../img/back.jpg"); /* new tag */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+hr{
+    text-align: center;
+    /*margin: 2%;*/
+    border-style: inset;
+    border-width: 4px;
+    width: 50%;
+    
+}
+div {
+    text-align: center;
+    /*background-color: gray;*/
+    /*opacity: 0.5;*/
+    /*filter: alpha(opacity=50);*/
+    
+    width: 50%;
+    
+}

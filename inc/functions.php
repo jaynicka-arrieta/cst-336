@@ -31,7 +31,7 @@ $spades = array();
         echo "<div>";
         while ($total < 42) {
             
-            if ((45 - $total) <= 6) { //allows total to go over 42, but not by an absurd amount
+            if ((45 - $total) <= 10) { //allows total to go over 42, but not by an absurd amount
                 break;
             }
             
@@ -71,13 +71,11 @@ $spades = array();
             }
             
             
-            
-            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' />";
+
+            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '50px'/>";
             //echo " Total = $total";
         }
-        
         echo "</div>";
-        
         return $total;
     }
     
@@ -97,10 +95,4 @@ $spades = array();
         
     }
     
-
-    
-    function getWinner() {
-        
-    }
-
 ?>
