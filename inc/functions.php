@@ -6,6 +6,7 @@ $clubs = array();
 $diamonds = array();
 $spades = array();
 
+
     function setDeck(){ //Sets the Deck of cards.
         global $hearts, $spades, $diamonds, $clubs;
         
@@ -17,7 +18,7 @@ $spades = array();
         }
     }
     
-    function draw(){//draw cards until total is <= 42
+    function draw() {//draw cards until total is <= 42
         global $suits, $hearts, $spades, $diamonds, $clubs;
         
         shuffle($hearts);
@@ -76,8 +77,30 @@ $spades = array();
         }
         
         echo "</div>";
+        
+        return $total;
     }
     
-    setDeck();
+    function play() {
+        setDeck();
+
+        $playerPoints = array();
+        for ($i = 0; $i < 4; $i++) {
+            $playerTotal = draw();
+            echo "player points $playerTotal";
+            array_push($playerPoints, $playerTotal);
+            echo "<br />";
+        }
+        
+        $totalPoints = array_sum($playerPoints);
+        echo "total points $totalPoints";
+        
+    }
+    
+
+    
+    function getWinner() {
+        
+    }
 
 ?>
