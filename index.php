@@ -1,33 +1,36 @@
-<?php
-$deck = array();
-
-    function setDeck(){ //Sets the Deck of cards.
-        global $deck;
-        for($i = 0; $i < 52; $i++) {
-            $deck[] = $i;
-        }
-        //print_r($deck);
-    }
-    
-    function draw(){//draw a card from top of deck.
-        global $deck;
-        return array_pop($deck);
-    }
-    
-    setDeck(); //calls the setDeck() function.
-    shuffle($deck);
-    //print_r($deck);
-    
-    print(draw());
-    
-?>
-
 <!DOCTYPE html>
 <html>
+    <?php include 'inc/functions.php' ?>
+    
     <head>
-        <title> </title>
+        <meta charset="utf-8"/>
+        <title> SilverJack </title>
+        <style>
+            @import url("css/styles.css");
+        </style>
     </head>
     <body>
-
+        <?php 
+            for ($i = 0; $i < 4; $i++) {
+                draw();
+                echo "<br />";
+            }
+        ?>
+        
+        <footer>
+            <div>
+              <hr>
+              <h5>
+                CST 336 - Internet Programming 2018&copy; Arrieta, Cabrera, Laitha, Shimizu <br />
+                <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
+                It is used for academic purposes
+              </h5>
+            </div>
+            <figure>
+              <img src="img/csumb.jpg" alt="CSUMB logo" />
+            </figure>
+        </footer>
+        
     </body>
+    
 </html>
