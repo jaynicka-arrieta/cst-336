@@ -11,10 +11,13 @@
     </head>
     <body>
         <?php 
+            setDeck(); //set deck initially; 
             for ($i = 0; $i < 4; $i++) {
                 draw();
                 echo "<br />";
             }
+            setDeck(); //resets decks when playing again.
+            
         ?>
         
         <footer>
