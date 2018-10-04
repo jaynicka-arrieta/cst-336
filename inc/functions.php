@@ -28,7 +28,7 @@ $spades = array();
         
         $total = 0;
         
-        echo "<div>";
+        echo "<div id= 'row'>";
         while ($total < 42) {
             
             if ((45 - $total) <= 10) { //allows total to go over 42, but not by an absurd amount
@@ -72,26 +72,24 @@ $spades = array();
             
             
 
-            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '50px'/>";
-            //echo " Total = $total";
+            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '75px'/>";
         }
-        echo "</div>";
         return $total;
     }
     
     function play() {
         setDeck();
-
+        
         $playerPoints = array();
+        echo "<div id= 'cards'>";
         for ($i = 0; $i < 4; $i++) {
             $playerTotal = draw();
-            echo "player points $playerTotal";
+            echo "  Score: $playerTotal </div>";
             array_push($playerPoints, $playerTotal);
-            echo "<br />";
         }
         
         $totalPoints = array_sum($playerPoints);
-        echo "total points $totalPoints";
+        echo "<div id = 'total'> Total Points: $totalPoints </div>";
         
     }
     

@@ -5,26 +5,35 @@ h1 {
 }
 
 body {
-    background-image: url("../img/back.jpg"); /* new tag */
+    background-image: url("../img/back2.jpg"); /* new tag */
     background-size: 100%;
     background-repeat: no-repeat;
     text-align: center;
+    color: white;
 }
 
 hr{
     text-align: center;
-    /*margin: 2%;*/
     border-style: inset;
     border-width: 4px;
     width: 100%;
     
 }
-div {
+#cards {
+    text-align: left;
+    padding-left: 300px;
+    float: left;
+    width: 100%;
+}
+
+#row {
+    padding-bottom: 100px;
+}
+
+#total {
     text-align: center;
-    /*background-color: gray;*/
-    /*opacity: 0.5;*/
-    /*filter: alpha(opacity=50);*/
-    
-    width: 50%;
-    
+}
+
+#game {
+    padding-top: 100px;
 }
