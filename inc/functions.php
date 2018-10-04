@@ -5,6 +5,8 @@ $hearts = array();
 $clubs = array();
 $diamonds = array();
 $spades = array();
+$players = array();
+$winners = array();
 
 
     function setDeck(){ //Sets the Deck of cards.
@@ -79,19 +81,74 @@ $spades = array();
         return $total;
     }
     
-    function play() {
-        setDeck();
+    //add the winner's index (basically the i-th draw)
+    function getWinners() {
+        global $players, $winners;
+        
+        $winnersPoints = getWinnersPoint();
 
-        $playerPoints = array();
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] == $winnersPoints) {
+                array_push($winners, $i);
+            }
+        }
+    }
+    
+    // gets highest winning points from all four players
+    function getWinnersPoint() {
+        global $players;
+        
+        $highest = 0;
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] >= 0 && $players[$i] <= 42) { // checks if it's withing 0 >= n <= 42
+                if ($players[$i] >= $highest) { //checks if it's greater than the previous highest
+                    $highest = $players[$i];
+                }
+            }
+        }
+        return $highest;
+    }
+    
+    // gets total earnings not including the winning amount
+    function getTotalPoints() {
+        global $players;
+        
+        $winnersPoints = getWinnersPoint();
+        $total = 0;
+        
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] != $winnersPoints) {
+                $total += $players[$i];
+            }
+        }
+        
+        return $total;
+    }
+    
+    function play() {
+        global $winners, $players;
+        
+        setDeck();
+        
         for ($i = 0; $i < 4; $i++) {
             $playerTotal = draw();
-            echo "player points $playerTotal";
-            array_push($playerPoints, $playerTotal);
+            array_push($players, $playerTotal);
+            echo "Points: $players[$i]";
             echo "<br />";
         }
         
-        $totalPoints = array_sum($playerPoints);
-        echo "total points $totalPoints";
+        $winnersPoints = getWinnersPoint();
+        $totalEarnings = getTotalPoints();
+        
+        getWinners();
+        
+        // goes through all the winners and prints which player and the points they won
+        for ($i = 0; $i < count($winners); $i++) {
+            $player = $winners[$i] + 1; 
+            echo "player $player wins with $winnersPoints points and earns $totalEarnings points";
+            echo "<br />";
+        }    
+        
         
     }
     
