@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8"/>
         <title> Team 2: SilverJack </title>
-        <a href="https://fontmeme.com/pokemon-go-font/"><img src="https://fontmeme.com/permalink/181004/c2a9a5e0ecf0fe92a70fae0070e678bc.png" alt="pokemon-go-font" border="0" width="200px"></a>
+        <a href="https://fontmeme.com/pokemon-go-font/"><img src="https://fontmeme.com/permalink/181004/c2a9a5e0ecf0fe92a70fae0070e678bc.png" alt="pokemon-go-font" border="0" width="500px"></a>
         <hr>
         <style>
             @import url("css/styles.css");
