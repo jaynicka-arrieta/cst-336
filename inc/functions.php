@@ -7,8 +7,6 @@ $diamonds = array();
 $spades = array();
 $players = array();
 $winners = array();
-$playerPics = array("1", "2", "3", "4");
-
 
     function setDeck(){ //Sets the Deck of cards.
         global $hearts, $spades, $diamonds, $clubs;
@@ -125,16 +123,8 @@ $playerPics = array("1", "2", "3", "4");
         return $total;
     }
     
-    function displayPlayers() {
-        global $playerPics;
-        for ($i = 1; $i <= 4; $i++) {
-            echo "<img src= 'img/player/$playerPics[$i].png' alt= '$playerPics[$i]' title= '$playerPics[$i]' width= '30px'/>";
-        }
-    }
-    
-    
     function play() {
-        global $winners, $players,$playerPics;
+        global $winners, $players;
         
         setDeck();
         
