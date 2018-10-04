@@ -11,39 +11,7 @@
         </style>
     </head>
     <body>
-        <!--<div>-->
-        <!--    Player 1-->
-        <!--</div>-->
-        <!--<hr>-->
-        <!--div 1 : Player 1-->
-        
-        <!--<div>-->
-        <!--    Player 1-->
-        <!--</div>-->
-        <!--<hr>-->
-        <!--div 2 : Player 2-->
-        
-        <!--<div> -->
-        <!--    Player 1-->
-        <!--</div>-->
-        <!--<hr>-->
-        <!--div 3 : Player 3-->
-        
-        <!--<div> -->
-        <!--    Player 1-->
-        <!--</div>-->
-        <!--<hr>-->
-        <!--div 4 : Player 4-->
-        
-        <!--<div> -->
-        <!--    Player[] Won! Total Points: -->
-        <!--</div>-->
-        <!--<hr>-->
-        <!--div 5 display who won-->
-        
-        <!--<div id="display">-->
-            
-        <!--</div>-->
+
         <?php 
             for ($i = 0; $i < 4; $i++) {
                 draw();
