@@ -72,7 +72,7 @@ $winners = array();
             }
             
             
-            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '30px'/>";
+            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '70px'/>";
             
             //echo " Total = $total";
         }

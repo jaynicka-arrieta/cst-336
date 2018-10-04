@@ -41,7 +41,7 @@
                 It is used for academic purposes
               </h5>
             </div>
-            <img src="img/csumb.jpg" alt="CSUMB logo" width="30px" />
+            <img src="img/csumb.jpg" alt="CSUMB logo" width="60px" />
         </footer>
         <hr>
     </body>

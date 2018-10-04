@@ -23,7 +23,7 @@ hr{
 
 #playerpoints{
     
-    font-size: .7em;
+    font-size: 1.5em;
     text-align: right;
     color: #003399;
     font-family: monospace;
@@ -37,13 +37,13 @@ table.darkTable {
 }
 table.darkTable td, table.darkTable th {
     /*border-style: dotted;*/
-    border: 4px ridge #FFCB08;
+    /*border: 4px ridge #FFCB08;*/
     padding: 3px 2px;
 }
 
-table.darkTable thead {
-    border-bottom: 3px ridge #FFCB08;
-}
+/*table.darkTable thead {*/
+/*    border-bottom: 3px ridge #FFCB08;*/
+/*}*/
 table.darkTable thead th {
     font-size: 15px;
     font-weight: bold;
@@ -55,14 +55,14 @@ table.darkTable thead th {
 }
 
 #total {
-    font-size: .9em;
+    font-size: 1.5em;
     text-align: center;
     color: #003399;
     font-family: monospace;
 }
 
 footer {
-    font-size: .6em;
+    font-size: .9em;
     color: black;
 }
 
