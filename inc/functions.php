@@ -5,6 +5,10 @@ $hearts = array();
 $clubs = array();
 $diamonds = array();
 $spades = array();
+$players = array();
+$winners = array();
+$playerPics = array("1", "2", "3", "4");
+
 
     function setDeck(){ //Sets the Deck of cards.
         global $hearts, $spades, $diamonds, $clubs;
@@ -14,10 +18,11 @@ $spades = array();
             $clubs[] = $i;
             $diamonds[] = $i;
             $spades[] = $i;
+            
         }
     }
     
-    function draw(){//draw cards until total is <= 42
+    function draw() {//draw cards until total is <= 42
         global $suits, $hearts, $spades, $diamonds, $clubs;
         
         shuffle($hearts);
@@ -30,12 +35,11 @@ $spades = array();
         echo "<div>";
         while ($total < 42) {
             
-            if ((45 - $total) <= 6) { //allows total to go over 42, but not by an absurd amount
+            if ((45 - $total) <= 10) { //allows total to go over 42, but not by an absurd amount
                 break;
             }
             
             $randomSuit = array_rand($suits);
-
             switch ($randomSuit) { //used to choose card from correct img folder
                 case 0: $suit = "hearts";
                     break;
@@ -70,14 +74,93 @@ $spades = array();
             }
             
             
+            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '30px'/>";
             
-            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '50px'/>";
             //echo " Total = $total";
         }
-        
         echo "</div>";
+        return $total;
     }
     
-    setDeck();
-
+    //add the winner's index (basically the i-th draw)
+    function getWinners() {
+        global $players, $winners;
+        
+        $winnersPoints = getWinnersPoint();
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] == $winnersPoints) {
+                array_push($winners, $i);
+            }
+        }
+    }
+    
+    // gets highest winning points from all four players
+    function getWinnersPoint() {
+        global $players;
+        
+        $highest = 0;
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] >= 0 && $players[$i] <= 42) { // checks if it's withing 0 >= n <= 42
+                if ($players[$i] >= $highest) { //checks if it's greater than the previous highest
+                    $highest = $players[$i];
+                }
+            }
+        }
+        return $highest;
+    }
+    
+    // gets total earnings not including the winning amount
+    function getTotalPoints() {
+        global $players;
+        
+        $winnersPoints = getWinnersPoint();
+        $total = 0;
+        
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] != $winnersPoints) {
+                $total += $players[$i];
+            }
+        }
+        
+        return $total;
+    }
+    
+    function displayPlayers() {
+        global $playerPics;
+        for ($i = 1; $i <= 4; $i++) {
+            echo "<img src= 'img/player/$playerPics[$i].png' alt= '$playerPics[$i]' title= '$playerPics[$i]' width= '30px'/>";
+        }
+    }
+    
+    
+    function play() {
+        global $winners, $players,$playerPics;
+        
+        setDeck();
+        
+        for ($i = 0; $i < 4; $i++) {
+            $playerTotal = draw();
+            
+            array_push($players, $playerTotal);
+            
+            echo "<div id='playerpoints'>Points: $players[$i]</div>";
+            echo "<hr>";
+            echo "<br />";
+        }
+        
+        $winnersPoints = getWinnersPoint();
+        $totalEarnings = getTotalPoints();
+        
+        getWinners();
+        
+        // goes through all the winners and prints which player and the points they won
+        for ($i = 0; $i < count($winners); $i++) {
+            $player = $winners[$i] + 1; 
+            echo "<div id='total'> player $player wins with $winnersPoints points and earns $totalEarnings points</div>";
+            echo "<br />";
+        }    
+        
+        
+    }
+    
 ?>
