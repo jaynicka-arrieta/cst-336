@@ -5,35 +5,88 @@ h1 {
 }
 
 body {
-    background-image: url("../img/back2.jpg"); /* new tag */
+    background-image: url("/cst-336/img/background/b2.jpg"); /* new tag */
     background-size: 100%;
     background-repeat: no-repeat;
     text-align: center;
-    color: white;
+    background-color: black;
 }
 
 hr{
     text-align: center;
-    border-style: inset;
-    border-width: 4px;
+    /*margin: 2%;*/
+    border-style: ridge;
+    border-width: 2px;
     width: 100%;
     
 }
-#cards {
-    text-align: left;
-    padding-left: 300px;
-    float: left;
-    width: 100%;
+
+h5 {
+    font-size: 15px;
 }
 
-#row {
-    padding-bottom: 100px;
+#playerpoints{
+    
+    font-size: 1.5em;
+    text-align: right;
+    color: #003399;
+    font-family: monospace;
+}
+
+table.darkTable {
+  /*background-color: #4A4A4A;*/
+    width: 50%;
+    border-collapse: collapse;
+    
+}
+table.darkTable td, table.darkTable th {
+    padding: 3px 2px;
+}
+
+table.darkTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    border-left: 2px ridge #FFCB08;
+}
+.tbody {
+    opacity: 60;
 }
 
 #total {
+    font-size: 1.5em;
     text-align: center;
+    color: #003399;
+    font-family: monospace;
 }
 
-#game {
-    padding-top: 100px;
+footer {
+    font-size: .9em;
+    color: black;
+}
+
+input {
+    background-color: #FFCB08; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+input {
+    background-color: #296FB6; 
+    color: #FFCB08; 
+    border: 2px;
+}
+
+input:hover {
+    background-color: #FFCB08;
+    color: #FFCB08;
 }

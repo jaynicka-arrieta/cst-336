@@ -5,33 +5,45 @@
     <head>
         <meta charset="utf-8"/>
         <title> Team 2: SilverJack </title>
-        <h1><center><img src = "img/poke_logo.png" alt = "poke logo" title = "poke logo" width = "300px"/></center></h1>
+        <a href="https://fontmeme.com/pokemon-go-font/"><img src="https://fontmeme.com/permalink/181004/c2a9a5e0ecf0fe92a70fae0070e678bc.png" alt="pokemon-go-font" border="0" width="500px"></a>
+        <hr>
         <style>
             @import url("css/styles.css");
+            
         </style>
     </head>
     
-    <body>
-        
-        <div id="game">
-            
-            <?php 
-                play();
-            ?>
-        </div>
-        
+    <body>  
+        <center><table class="darkTable" background="img/b3.jpg"></center>
+            <thead>
+            <tr>
+            <th>
+            <center><table class ="inner"></center>
+                <thead>
+                <tr>
+                <th><form><input type = "submit" value="Play Again!"/></form></th>
+                </tr>
+                </thead>
+                </table>
+            </th>
+            <th><?=play()?></th>
+            </tr>
+            </thead>
+            </table>
+    
+       
+
         <footer>
             <div>
-              <hr>
-              <h5>
+                <hr>
+                <h5>
                 CST 336 - Internet Programming 2018&copy; Arrieta, Cabrera, Laitha, Shimizu <br />
                 <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
                 It is used for academic purposes
-              </h5>
+                </h5>
             </div>
-            <figure>
-              <img src="img/csumb.jpg" alt="CSUMB logo" />
-            </figure>
+            <img src="img/csumb.jpg" alt="CSUMB logo" width="60px" />
         </footer>
     </body>
+    
 </html>

@@ -5,7 +5,8 @@ $hearts = array();
 $clubs = array();
 $diamonds = array();
 $spades = array();
-
+$players = array();
+$winners = array();
 
     function setDeck(){ //Sets the Deck of cards.
         global $hearts, $spades, $diamonds, $clubs;
@@ -15,6 +16,7 @@ $spades = array();
             $clubs[] = $i;
             $diamonds[] = $i;
             $spades[] = $i;
+            
         }
     }
     
@@ -28,15 +30,14 @@ $spades = array();
         
         $total = 0;
         
-        echo "<div id= 'row'>";
+        echo "<div>";
         while ($total < 42) {
             
-            if ((45 - $total) <= 10) { //allows total to go over 42, but not by an absurd amount
+            if ((43 - $total) <= 7) { //allows total to go over 42, but not by an absurd amount
                 break;
             }
             
             $randomSuit = array_rand($suits);
-
             switch ($randomSuit) { //used to choose card from correct img folder
                 case 0: $suit = "hearts";
                     break;
@@ -71,25 +72,84 @@ $spades = array();
             }
             
             
-
-            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '75px'/>";
+            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '70px'/>";
+            
+            //echo " Total = $total";
         }
+        echo "</div>";
+        return $total;
+    }
+    
+    //add the winner's index (basically the i-th draw)
+    function getWinners() {
+        global $players, $winners;
+        
+        $winnersPoints = getWinnersPoint();
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] == $winnersPoints) {
+                array_push($winners, $i);
+            }
+        }
+    }
+    
+    // gets highest winning points from all four players
+    function getWinnersPoint() {
+        global $players;
+        
+        $highest = 0;
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] >= 0 && $players[$i] <= 42) { // checks if it's withing 0 >= n <= 42
+                if ($players[$i] >= $highest) { //checks if it's greater than the previous highest
+                    $highest = $players[$i];
+                }
+            }
+        }
+        return $highest;
+    }
+    
+    // gets total earnings not including the winning amount
+    function getTotalPoints() {
+        global $players;
+        
+        $winnersPoints = getWinnersPoint();
+        $total = 0;
+        
+        for ($i = 0; $i < 4; $i++) {
+            if ($players[$i] != $winnersPoints) {
+                $total += $players[$i];
+            }
+        }
+        
         return $total;
     }
     
     function play() {
+        global $winners, $players;
+        
         setDeck();
         
-        $playerPoints = array();
-        echo "<div id= 'cards'>";
         for ($i = 0; $i < 4; $i++) {
             $playerTotal = draw();
-            echo "  Score: $playerTotal </div>";
-            array_push($playerPoints, $playerTotal);
+            
+            array_push($players, $playerTotal);
+            
+            echo "<div id='playerpoints'>Points: $players[$i]</div>";
+            echo "<hr>";
+            echo "<br />";
         }
         
-        $totalPoints = array_sum($playerPoints);
-        echo "<div id = 'total'> Total Points: $totalPoints </div>";
+        $winnersPoints = getWinnersPoint();
+        $totalEarnings = getTotalPoints();
+        
+        getWinners();
+        
+        // goes through all the winners and prints which player and the points they won
+        for ($i = 0; $i < count($winners); $i++) {
+            $player = $winners[$i] + 1; 
+            echo "<div id='total'> player $player wins with $winnersPoints points and earns $totalEarnings points</div>";
+            echo "<br />";
+        }    
+        
         
     }
     
