@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+$start_time = microtime(TRUE);
+session_start();
+
+function gamesPlayed() {
+    if (empty($_SESSION['counter']))
+        $_SESSION['counter'] = 1;
+    else
+        $_SESSION['counter']++;
+}
+
+?>
 <html>
     <?php include 'inc/functions.php' ?>
     
@@ -42,7 +54,25 @@
               </h5>
             </div>
             <img src="img/csumb.jpg" alt="CSUMB logo" width="60px" />
+            
+            <div>
+                <?php gamesPlayed();?>
+                You have played <?php echo $_SESSION['counter']; ?> times <br>
+                <?php
+                $end_time = microtime(TRUE);
+                $time_taken =($end_time - $start_time)*1000;
+                $time_taken = round($time_taken,5);
+                echo 'Page generated in '.$time_taken.' seconds.';
+                
+                $_SESSION['timeTaken'] += $time_taken;
+                $_SESSION['avgTime'] = $_SESSION['timeTaken'] /$_SESSION['counter'];
+                //$_SESSION['avgTime'] = 0;
+                //$_SESSION['counter'] = 0;
+                ?>
+                Avg Load time is <?php echo round($_SESSION['avgTime'],5);?>
+            </div>
         </footer>
         <hr>
     </body>
 </html>
+

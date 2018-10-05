@@ -7,6 +7,7 @@ $diamonds = array();
 $spades = array();
 $players = array();
 $winners = array();
+session_start();
 
     function setDeck(){ //Sets the Deck of cards.
         global $hearts, $spades, $diamonds, $clubs;
@@ -123,6 +124,9 @@ $winners = array();
         return $total;
     }
     
+
+
+    
     function play() {
         global $winners, $players;
         
@@ -142,7 +146,6 @@ $winners = array();
         $totalEarnings = getTotalPoints();
         
         getWinners();
-        
         // goes through all the winners and prints which player and the points they won
         for ($i = 0; $i < count($winners); $i++) {
             $player = $winners[$i] + 1; 
@@ -150,7 +153,10 @@ $winners = array();
             echo "<br />";
         }    
         
-        
+
     }
     
+
+
+
 ?>
