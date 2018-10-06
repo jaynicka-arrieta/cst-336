@@ -26,25 +26,61 @@ function gamesPlayed() {
     </head>
     
     <body>  
-        <center><table class="darkTable" background="img/b3.jpg"></center>
-            <thead>
-            <tr>
-            <th>
-            <center><table class ="inner"></center>
+    
+    <center><table class="darkTable" background="img/b3.jpg" style ="border-radius: px"></center>
+        <thead>
+        <tr>
+        <th><?= displayPlayer() ?></th>
+        <th><?=play()?></th>
+        <th>
+           <center><table class ="inner"></center>
                 <thead>
                 <tr>
                 <th><form><input type = "submit" value="Play Again!"/></form></th>
                 </tr>
                 </thead>
+ 
+                <tfoot>
+                <tr>
+                    <td id ="time_td">
+                        <div id="time">
+                            <?php gamesPlayed();?>
+                            You have played <?php echo $_SESSION['counter']; ?> times <br>
+                            <?php
+                            $end_time = microtime(TRUE);
+                            $time_taken =($end_time - $start_time)*1000;
+                            $time_taken = round($time_taken,5);
+                            echo 'Page generated in '.$time_taken.' seconds.';
+                            
+                            $_SESSION['timeTaken'] += $time_taken;
+                            $_SESSION['avgTime'] = $_SESSION['timeTaken'] /$_SESSION['counter'];
+                            //$_SESSION['avgTime'] = 0;
+                            //$_SESSION['counter'] = 0;
+                            echo "<br>";
+                            ?>
+                        
+                            Avg Load time is <?php echo round($_SESSION['avgTime'],5);?>
+                        </div>
+                    
+                    
+                    </td>
+                </tr>
+                </tfoot>
                 </table>
-            </th>
-            <th><?=play()?></th>
-            </tr>
-            </thead>
-            </table>
-    
-       
-
+        </th>
+        </tr>
+        </thead>
+        <!--<tfoot>-->
+        <!--<tr>-->
+        <!--<td>foot1</td>-->
+        <!--<td>foot2</td>-->
+        <!--<td>foot3</td>-->
+        <!--</tr>-->
+        <!--</tfoot>-->
+        <tbody>
+        <tr>
+        <td><center><img src="img/otter.png" alt="CSUMB logo" width="60px" /></td></center>
+        <td> 
         <footer>
             <div>
               <h5>
@@ -53,25 +89,19 @@ function gamesPlayed() {
                 It is used for academic purposes
               </h5>
             </div>
-            <img src="img/csumb.jpg" alt="CSUMB logo" width="60px" />
             
-            <div>
-                <?php gamesPlayed();?>
-                You have played <?php echo $_SESSION['counter']; ?> times <br>
-                <?php
-                $end_time = microtime(TRUE);
-                $time_taken =($end_time - $start_time)*1000;
-                $time_taken = round($time_taken,5);
-                echo 'Page generated in '.$time_taken.' seconds.';
-                
-                $_SESSION['timeTaken'] += $time_taken;
-                $_SESSION['avgTime'] = $_SESSION['timeTaken'] /$_SESSION['counter'];
-                //$_SESSION['avgTime'] = 0;
-                //$_SESSION['counter'] = 0;
-                ?>
-                Avg Load time is <?php echo round($_SESSION['avgTime'],5);?>
-            </div>
+            
+            
         </footer>
+        </td>
+        <td>            
+           .......
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        
+       
         <hr>
     </body>
 </html>
