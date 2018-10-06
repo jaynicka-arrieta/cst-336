@@ -21,13 +21,18 @@ function gamesPlayed() {
         <hr>
         <style>
             @import url("css/styles.css");
+            table {
+               
+                background-image: url("img/b2.jpg");
+                border-radius: 50px;
+            }
             
         </style>
     </head>
     
     <body>  
     
-    <center><table class="darkTable" background="img/b3.jpg" style ="border-radius: px"></center>
+    <center><table class="darkTable"  ></center>
         <thead>
         <tr>
         <th><?= displayPlayer() ?></th>
@@ -70,18 +75,18 @@ function gamesPlayed() {
         </thead>
         <tbody>
         <tr>
-        <td><center><img src="img/otter.png" alt="CSUMB logo" width="60px" /></td></center>
+     
         <td> 
-        <footer>
-            <div>
-                <h5>
-                CST 336 - Internet Programming 2018&copy; Arrieta, Cabrera, Laitha, Shimizu <br />
-                <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
-                It is used for academic purposes
-                </h5>
-            </div>
-            
-        </footer>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         </td>
         <td>            
            
@@ -91,5 +96,16 @@ function gamesPlayed() {
         </table>
         
     </body>
+     <footer>
+            <div>
+                <h5>
+                CST 336 - Internet Programming 2018&copy; Arrieta, Cabrera, Laitha, Shimizu <br />
+                <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
+                It is used for academic purposes
+                </h5>
+            </div>
+            
+        </footer>
+         <td><center><img src="img/otter.png" alt="CSUMB logo" width="60px" /></td></center>
 </html>
 

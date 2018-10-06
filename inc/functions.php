@@ -13,11 +13,11 @@ session_start();
     function displayPlayer() {
         global $playersArray;
         shuffle($playersArray);
+        echo "<hr>";
         foreach($playersArray as $value) {
             echo "<table id='playerTable'>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<hr>";
                 echo "<th><img src= 'img/player/$value.png' alt= '$value' title= '$value' width= '65px'/> </th> ";
                 echo "<center>$value</center>";
                 echo "</tr>";
