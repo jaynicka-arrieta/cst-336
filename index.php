@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+$start_time = microtime(TRUE);
+session_start();
+
+function gamesPlayed() {
+    if (empty($_SESSION['counter']))
+        $_SESSION['counter'] = 1;
+    else
+        $_SESSION['counter']++;
+}
+
+?>
 <html>
     <?php include 'inc/functions.php' ?>
     
@@ -14,36 +26,72 @@
     </head>
     
     <body>  
-        <center><table class="darkTable" background="img/b3.jpg"></center>
-            <thead>
-            <tr>
-            <th>
-            <center><table class ="inner"></center>
+    
+    <center><table class="darkTable" background="img/b3.jpg" style ="border-radius: px"></center>
+        <thead>
+        <tr>
+        <th><?= displayPlayer() ?></th>
+        <th><?=play()?></th>
+        <th>
+           <center><table class ="inner"></center>
                 <thead>
                 <tr>
                 <th><form><input type = "submit" value="Play Again!"/></form></th>
                 </tr>
                 </thead>
+ 
+                <tfoot>
+                <tr>
+                    <td id ="time_td">
+                        <div id="time">
+                            <?php gamesPlayed();?>
+                            You have played <?php echo $_SESSION['counter']; ?> times <br>
+                            <?php
+                            $end_time = microtime(TRUE);
+                            $time_taken =($end_time - $start_time)*1000;
+                            $time_taken = round($time_taken,5);
+                            echo 'Page generated in '.$time_taken.' seconds.';
+                            
+                            $_SESSION['timeTaken'] += $time_taken;
+                            $_SESSION['avgTime'] = $_SESSION['timeTaken'] /$_SESSION['counter'];
+                            echo "<br>";
+                            ?>
+                        
+                            Avg Load time is <?php echo round($_SESSION['avgTime'],5);?>
+                        </div>
+                    
+                    
+                    </td>
+                </tr>
+                </tfoot>
                 </table>
-            </th>
-            <th><?=play()?></th>
-            </tr>
-            </thead>
-            </table>
-    
-       
-
+        </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><center><img src="img/otter.png" alt="CSUMB logo" width="60px" /></td></center>
+        <td> 
         <footer>
             <div>
-                <hr>
                 <h5>
                 CST 336 - Internet Programming 2018&copy; Arrieta, Cabrera, Laitha, Shimizu <br />
                 <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
                 It is used for academic purposes
                 </h5>
             </div>
-            <img src="img/csumb.jpg" alt="CSUMB logo" width="60px" />
+            
         </footer>
+        </td>
+        <td>            
+           
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        
+       
+        <hr>
     </body>
-    
 </html>
+

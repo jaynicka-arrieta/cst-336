@@ -30,7 +30,7 @@ h5 {
     font-size: 1.5em;
     text-align: right;
     color: #003399;
-    font-family: monospace;
+    font: italic bold 20px/30px Georgia, serif;
 }
 
 table.darkTable {
@@ -40,14 +40,19 @@ table.darkTable {
     
 }
 table.darkTable td, table.darkTable th {
+    /*border-style: dotted;*/
+    border: 8px ridge #FFCB08;
     padding: 3px 2px;
 }
 
+table.darkTable thead {
+    border-bottom: 3px ridge #FFCB08;
+}
 table.darkTable thead th {
     font-size: 15px;
     font-weight: bold;
     text-align: left;
-    border-left: 2px ridge #FFCB08;
+    border-left: 8px ridge #FFCB08;
 }
 .tbody {
     opacity: 60;
@@ -57,27 +62,29 @@ table.darkTable thead th {
     font-size: 1.5em;
     text-align: center;
     color: #003399;
-    font-family: monospace;
+    font: italic bold 20px/30px Georgia, serif;
 }
 
 footer {
     font-size: .9em;
     color: black;
+    text-align: center;
 }
 
 input {
     background-color: #FFCB08; /* Green */
     border: none;
     color: white;
-    padding: 10px 15px;
+    padding: 20px 37%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.6s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
+    
 }
 
 input {
@@ -89,4 +96,20 @@ input {
 input:hover {
     background-color: #FFCB08;
     color: #FFCB08;
+}
+
+#time {
+    font-size: 1em;
+    text-align: center;
+    color: #003399;
+    font-family: monospace;
+    font: italic bold 20px/30px Georgia, serif;
+}
+#time_td {
+    background-color: white;
+    
+}
+#playerTable {
+    text-align: inherit;
+    border-spacing: 5px 15px;
 }

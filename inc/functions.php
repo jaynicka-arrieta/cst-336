@@ -7,6 +7,25 @@ $diamonds = array();
 $spades = array();
 $players = array();
 $winners = array();
+$playersArray = array("Bulbasur","Darkrai","Dragonite","Ghastly");
+session_start();
+
+    function displayPlayer() {
+        global $playersArray;
+        shuffle($playersArray);
+        foreach($playersArray as $value) {
+            echo "<table id='playerTable'>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<hr>";
+                echo "<th><img src= 'img/player/$value.png' alt= '$value' title= '$value' width= '70px'/> </th> ";
+                echo "<center>$value</center>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "</table>";
+        }
+        echo "<hr>";
+    }
 
     function setDeck(){ //Sets the Deck of cards.
         global $hearts, $spades, $diamonds, $clubs;
@@ -21,16 +40,19 @@ $winners = array();
     }
     
     function draw() {//draw cards until total is <= 42
-        global $suits, $hearts, $spades, $diamonds, $clubs;
+        global $suits, $hearts, $spades, $diamonds, $clubs, $playersArray;
         
         shuffle($hearts);
         shuffle($spades);
         shuffle($diamonds);
         shuffle($clubs);
+        shuffle($playersArray);
         
         $total = 0;
+        $i = 0;
         
         echo "<div>";
+        
         while ($total < 42) {
             
             if ((43 - $total) <= 7) { //allows total to go over 42, but not by an absurd amount
@@ -73,7 +95,6 @@ $winners = array();
             
             
             echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '70px'/>";
-            
             //echo " Total = $total";
         }
         echo "</div>";
@@ -123,6 +144,9 @@ $winners = array();
         return $total;
     }
     
+
+
+    
     function play() {
         global $winners, $players;
         
@@ -142,7 +166,6 @@ $winners = array();
         $totalEarnings = getTotalPoints();
         
         getWinners();
-        
         // goes through all the winners and prints which player and the points they won
         for ($i = 0; $i < count($winners); $i++) {
             $player = $winners[$i] + 1; 
@@ -150,7 +173,7 @@ $winners = array();
             echo "<br />";
         }    
         
-        
+
     }
-    
+
 ?>
