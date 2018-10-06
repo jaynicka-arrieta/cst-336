@@ -17,7 +17,6 @@ session_start();
             echo "<table id='playerTable'>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<hr>";
                 echo "<th><img src= 'img/player/$value.png' alt= '$value' title= '$value' width= '70px'/> </th> ";
                 echo "<center>$value</center>";
                 echo "</tr>";
@@ -168,7 +167,7 @@ session_start();
         // goes through all the winners and prints which player and the points they won
         for ($i = 0; $i < count($winners); $i++) {
             $player = $winners[$i] + 1; 
-            echo "<div id='total'> player $player wins with $winnersPoints points and earns $totalEarnings points</div>";
+            echo "<div id='total'> Player $player wins with $winnersPoints points and earns $totalEarnings points</div>";
             echo "<br />";
         }    
         

@@ -21,18 +21,52 @@ function gamesPlayed() {
         <hr>
         <style>
             @import url("css/styles.css");
+            input {
+                border-radius: 10px;
+            }
+            .darkTable {
+                /*width: auto;*/
+                border-radius: 100px;
+                background: 
+                  /* top, transparent red, faked with gradient */ 
+                  linear-gradient(
+                    rgba(0, 0, 0, 0.1), 
+                    rgba(0, 0, 0, 0.1)
+                  ),
+                  url(img/b2.jpg);
+            }
             
         </style>
     </head>
     
     <body>  
     
-    <center><table class="darkTable" background="img/b3.jpg" style ="border-radius: px"></center>
+    <center><table class="darkTable"</center>
         <thead>
         <tr>
-        <th><?= displayPlayer() ?></th>
+        <th><center><?= displayPlayer() ?></center></th>
         <th><?=play()?></th>
-        <th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+        <td><center><img src="img/otter.png" alt="CSUMB logo" width="60px" /></td></td>
+        <td> 
+        <footer>
+            <div>
+              <h5>
+                CST 336 - Internet Programming 2018&copy; Arrieta, Cabrera, Laitha, Shimizu <br />
+                <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
+                It is used for academic purposes
+              </h5>
+            </div>
+        </footer></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr>
+        <td></center>
+        <td> 
            <center><table class ="inner"></center>
                 <thead>
                 <tr>
@@ -58,7 +92,6 @@ function gamesPlayed() {
                             //$_SESSION['counter'] = 0;
                             echo "<br>";
                             ?>
-                        
                             Avg Load time is <?php echo round($_SESSION['avgTime'],5);?>
                         </div>
                     
@@ -67,35 +100,6 @@ function gamesPlayed() {
                 </tr>
                 </tfoot>
                 </table>
-        </th>
-        </tr>
-        </thead>
-        <!--<tfoot>-->
-        <!--<tr>-->
-        <!--<td>foot1</td>-->
-        <!--<td>foot2</td>-->
-        <!--<td>foot3</td>-->
-        <!--</tr>-->
-        <!--</tfoot>-->
-        <tbody>
-        <tr>
-        <td><center><img src="img/otter.png" alt="CSUMB logo" width="60px" /></td></center>
-        <td> 
-        <footer>
-            <div>
-              <h5>
-                CST 336 - Internet Programming 2018&copy; Arrieta, Cabrera, Laitha, Shimizu <br />
-                <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
-                It is used for academic purposes
-              </h5>
-            </div>
-            
-            
-            
-        </footer>
-        </td>
-        <td>            
-           .......
         </td>
         </tr>
         </tbody>

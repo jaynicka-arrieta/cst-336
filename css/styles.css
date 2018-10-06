@@ -4,10 +4,12 @@ h1 {
     color:#42bff4;
 }
 
+
+
 body {
-    background-image: url("/cst-336/img/background/b2.jpg"); /* new tag */
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background-image: url("../img/background/ploy7.jpg"); /* new tag */
+    background-size: 80%;
+    /*background-repeat: no-repeat;*/
     text-align: center;
     background-color: black;
 }
@@ -17,6 +19,7 @@ hr{
     /*margin: 2%;*/
     border-style: ridge;
     border-width: 2px;
+    border-radius: 30px;
     width: 100%;
     
 }
@@ -25,7 +28,7 @@ hr{
     
     font-size: 1.5em;
     text-align: right;
-    color: #003399;
+    color: white;
     font: italic bold 20px/30px Georgia, serif;
 }
 
@@ -37,19 +40,36 @@ table.darkTable {
 }
 table.darkTable td, table.darkTable th {
     /*border-style: dotted;*/
-    border: 8px ridge #FFCB08;
+    /*border: 3px ridge #EEEEEE;*/
     padding: 3px 2px;
 }
 
-table.darkTable thead {
-    border-bottom: 3px ridge #FFCB08;
-}
-table.darkTable thead th {
+table.darkTable thead th{
     font-size: 15px;
     font-weight: bold;
     text-align: left;
-    border-left: 8px ridge #FFCB08;
+    padding-left: 50px;
+    -webkit-box-shadow:0px 0px 10px 10px #33212e ;
+    -moz-box-shadow:0px 0px 10px 10px #33212e ;
+    box-shadow:0px 0px 10px 10px #33212e ;
+    
+    /*border-left: 3px ridge #EEEEEE;*/
+    /*border-right: 3px ridge #EEEEEE;*/
+    /*border-top: 3px ridge #EEEEEE;*/
+    /*border-bottom: 3px ridge #EEEEEE;*/
+    background-color: black;
+    background-image: url("../img/d.jpg");
+    border-radius: 50px;
 }
+
+table.darkTable thead th {
+
+    -webkit-box-shadow:0px 0px 10px 10px #33212e ;
+    -moz-box-shadow:0px 0px 10px 10px #33212e ;
+    box-shadow:0px 0px 10px 10px #33212e ;
+
+}
+
 .tbody {
     opacity: 60;
 }
@@ -57,21 +77,21 @@ table.darkTable thead th {
 #total {
     font-size: 1.5em;
     text-align: center;
-    color: #003399;
+    color: white;
     font: italic bold 20px/30px Georgia, serif;
 }
 
 footer {
     font-size: .9em;
-    color: black;
+    color: white;
     text-align: center;
 }
 
 input {
-    background-color: #FFCB08; /* Green */
+    background-color: #FFCB08; 
     border: none;
     color: white;
-    padding: 20px 38%;
+    padding: 25px 30%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -81,12 +101,13 @@ input {
     transition-duration: 0.4s;
     cursor: pointer;
     
+    
 }
 
 input {
-    background-color: #296FB6; 
+    background-color: black; 
     color: #FFCB08; 
-    border: 2px;
+    border: 10px;
 }
 
 input:hover {
@@ -102,12 +123,14 @@ input:hover {
     font: italic bold 20px/30px Georgia, serif;
 }
 #time_td {
-    background-color: white;
+    background-color: #FFC000;
+    border-radius: 100px;
     
 }
 #playerTable {
-    text-align: inherit;
     border-spacing: 5px 15px;
+    background-color: grey;
+    border-radius: 100px;
 }
 
 
