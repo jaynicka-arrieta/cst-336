@@ -18,7 +18,7 @@ session_start();
                 echo "<thead>";
                 echo "<tr>";
                 echo "<hr>";
-                echo "<th><img src= 'img/player/$value.png' alt= '$value' title= '$value' width= '70px'/> </th> ";
+                echo "<th><img src= 'img/player/$value.png' alt= '$value' title= '$value' width= '65px'/> </th> ";
                 echo "<center>$value</center>";
                 echo "</tr>";
                 echo "</thead>";
@@ -94,7 +94,7 @@ session_start();
             }
             
             
-            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '70px'/>";
+            echo "<img src= 'img/cards/$suit/$card.png' alt= '$suit/$card' title= '$suit/$card' width= '60px'/>";
             //echo " Total = $total";
         }
         echo "</div>";
@@ -108,7 +108,7 @@ session_start();
         $winnersPoints = getWinnersPoint();
         for ($i = 0; $i < 4; $i++) {
             if ($players[$i] == $winnersPoints) {
-                array_push($winners, $i);
+                array_push($winners, $i + 1);
             }
         }
     }
@@ -144,9 +144,6 @@ session_start();
         return $total;
     }
     
-
-
-    
     function play() {
         global $winners, $players;
         
@@ -168,11 +165,10 @@ session_start();
         getWinners();
         // goes through all the winners and prints which player and the points they won
         for ($i = 0; $i < count($winners); $i++) {
-            $player = $winners[$i] + 1; 
-            echo "<div id='total'> player $player wins with $winnersPoints points and earns $totalEarnings points</div>";
+            $player = $winners[$i]; 
+            echo "<div id='total'> Player $player wins with $winnersPoints points and earns $totalEarnings points</div>";
             echo "<br />";
-        }    
-        
+        }   
 
     }
 

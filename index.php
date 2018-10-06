@@ -90,8 +90,6 @@ function gamesPlayed() {
         </tbody>
         </table>
         
-       
-        <hr>
     </body>
 </html>
 
